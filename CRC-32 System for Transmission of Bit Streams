@@ -1,0 +1,47 @@
+%This script generates the transmitted bit stream for a 64-bit input 
+%It uses CRC-32 (IEEE 802.3) generator to generate 32-bit FCS
+ 
+input_data = dec2bin(hex2dec('FEDCBA9876543210')); % convert input to binary string
+ 
+input_data = input_data - '0';      %convert from binary to int
+append_lwrend = zeros(1,32);        % generator polyn is of 32 bits
+D_X = [input_data  append_lwrend];  %construct the D(X) by padding zeroes to the end for division
+ 
+ 
+G_X= [ 1,0,0,0,0,0,1,0,0,1,1,0,0,0,0,0,1,0,0,0,1,1,1,0,1,1,0,1,1,0,1,1,1];  %CRC-32 vector
+    
+ 
+ 
+chunkOfD_X = D_X(1:length(G_X));
+Result = xor(chunkOfD_X, G_X);  %xor for the first time.  
+ 
+ 
+length_difference = length(D_X) - length(G_X);
+ 
+i = 1;
+for R=  1: length_difference
+    
+    if(i ~= length_difference)        %bringing down the next bit to append
+  next_D_Xbit = D_X(33 + i);            %obtain the next bit in the data
+  i=i+1;
+    end;
+ 
+Shifted_Result = horzcat(Result, next_D_Xbit );  %append the next bit in data to our sliding dividend
+Shifted_Result = Shifted_Result(2:34);           %throwaway the leftmost bit
+ 
+ 
+ 
+if ( Shifted_Result(1) ) == 0               %check whether the leading bit of the current 33-bits is 0 or 1
+    
+    Result = xor(Shifted_Result, zeros(1,33));
+else 
+    Result = xor(Shifted_Result, G_X);
+end;
+ 
+ 
+end;
+Result = Result(2:33);      %throwaway the leftmost bit
+ disp(['The remainder is ', num2str(Result)]); 
+ 
+Tx_Frame = horzcat(input_data, Result); %concatenate the data and the remainder
+disp(['The transmitted stream is ', num2str(Tx_Frame)]);

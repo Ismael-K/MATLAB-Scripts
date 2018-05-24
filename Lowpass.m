@@ -84,3 +84,4 @@ xlabel('t');ylabel('y6(t)');title('y6 vs. t');
 legend('x6','y6');grid on;
 
 
+

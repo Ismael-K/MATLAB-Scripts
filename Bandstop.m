@@ -1,6 +1,6 @@
 
 %Part 2 - pole-zero plot
-%{
+
 r=0.8;
 w0 = 0.25*pi;
 num = [1 -exp(-1i*w0)-exp(1i*w0) 1];
@@ -11,10 +11,10 @@ p = roots(den);
 figure
 zplane(z,p)
 title('Pole Zero Plot of H(z) for r = 0.8, Wo=0.25*pi')
-%}
+
 
 %Part 3 - freqz for trial values of varying r 
-%{
+
 %-----r = 0.2, keep wo = 0.25*pi -----------
 r=0.2; w0 = 0.25*pi;
 num = [1 -exp(-1i*w0)-exp(1i*w0) 1]; %b vector
@@ -62,10 +62,10 @@ figure
 plot(W, angle(H));
 title(['Phase Response with r=' , num2str(r), ', w0=', num2str(w0)]);grid
 xlabel('w (rad/sample)');ylabel('Phase');
-%}
+
 
 %Part 3 - freqz for trial values of varying Wo 
-%{
+
 %-----r = 0.8, keep wo = 0.25*pi -----------
 r=0.8; w0 = 0.25*pi;
 num = [1 -exp(-1i*w0)-exp(1i*w0) 1]; %b vector
@@ -133,10 +133,10 @@ plot(W, angle(H));
 title(['Phase Response with r=' , num2str(r), ', w0=', num2str(w0)]);grid
 xlabel('w (rad/sample)');ylabel('Phase');
 
-%}
+
 
 %Part 4(a-e),5(a-c) - generate 400 samples of 300Hz sine wave
-%{
+
 fsamp = 8192;
 n = 0:(1/fsamp):0.0488;
 x = 0.8*cos(2*pi*(300)*n);
@@ -195,7 +195,7 @@ a = [1 -(r*exp(-1i*w0)+r*exp(1i*w0)) r^2];
 Y = filter(b,a,sig);
 
 soundsc(Y, fs)
-%}
+
 
 %% Section II
 

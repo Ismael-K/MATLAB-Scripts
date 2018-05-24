@@ -3,7 +3,7 @@
 
 %                   25
 %	H(jw) = -------------------	
-%	              (25 - w^2) + j6w
+%	            (25 - w^2) + j6w
 %
 %Low pass filter
 %freqs function computes and plots the magnitude and phase on a logarithmic scale

@@ -1,4 +1,4 @@
 # MATLAB-Scripts
 
 
-##### Frequency response of discrete-time Bandstop filter
+##### Amplitude modulation by adding sinusoids of the same frequency

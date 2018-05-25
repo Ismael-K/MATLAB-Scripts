@@ -3,7 +3,7 @@ function[X] = Beat(A,B,fc,fdelta,fsamp,dur)
 %Beat generate AM or beat notes (sound and plot)  
 %Usage: This uses the parameters Beat(A,B,fc,fdelta,fsamp,dur)
 %The output is X
- 
+
 %check to see if real
 aR=isreal(A);
 bR=isreal(B);

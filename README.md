@@ -1,7 +1,7 @@
 # MATLAB-Scripts
 
 
-An example of Amplitude modulation by adding sinusoids of the same frequency using the Beat function with 200 Hz center frequency.  
+An example of amplitude modulation (AM) by adding sinusoids of the same frequency using the Beat function with 200 Hz center frequency.  
 <p align="center">
 <img width="586" alt="am beatnote2" src="https://user-images.githubusercontent.com/17348315/40556017-119ee9da-6019-11e8-8732-8198db34aecd.png">
 
@@ -16,7 +16,7 @@ Bandlimited_Interpolation outputs the impulse response of the Linear Interpolato
 
 
 
-The magnitude of the frequency responses of the signal reconstruction methods is obtained using fft.  Note the cutoff frequency of the filter is pi/5 because a value of L = 5 was used in the impulse response plots.  In the passband, the ZOH best approximates the ideal LPF but the ZOH results in large sidelobes in the stopband.  The low amplitude of the sidelobes in the Linear Interpolator frequency response show that it is a better choice in minimizing spectral leakage and tracking the stopband of the ideal LPF.     
+The magnitude of the frequency responses of the signal reconstruction methods is obtained by using fft.  Note the cutoff frequency of the filter is π/5 because a value of L = 5 was used in the impulse response plots.  In the passband, the ZOH best approximates the ideal LPF but the ZOH results in large sidelobes in the stopband.  The low amplitude of the sidelobes in the Linear Interpolator frequency response show that it is a better choice in minimizing spectral leakage and tracking the stopband of the ideal LPF.     
 
 <p align="center">
 <img width="576" alt="freqrespzoh" src="https://user-images.githubusercontent.com/17348315/40560675-b98d008c-6028-11e8-9ec9-67f5a8769320.png">

@@ -7,7 +7,7 @@ An example of Amplitude modulation by adding sinusoids of the same frequency usi
 
 
 
-Interpolation is the reconstruction of the continuous-time signal from its discrete-time digital samples. This process for signal reconstruction is used in digital-to-analog converters.  A low-pass filter is needed in the interpolation process to bandlimit the signal to satisfy the sampling criteria.  Since the ideal low-pass filter is difficult to construct, a Zero-Order Hold and Linear Interpolator are used to approximate this low-pass filter.
+Interpolation is the reconstruction of the continuous-time signal from its discrete-time digital samples. This process for signal reconstruction is used in digital-to-analog converters.  A low-pass filter (LPF) is needed in the interpolation process to bandlimit the signal to satisfy the sampling criteria.  Since the ideal low-pass filter is difficult to construct, a Zero-Order Hold (ZOH) and Linear Interpolator are used to approximate this low-pass filter.
 
 
 Bandlimited_Interpolation outputs the impulse response of the Linear Interpolator and the Zero-Order Hold.
@@ -16,6 +16,7 @@ Bandlimited_Interpolation outputs the impulse response of the Linear Interpolato
 
 
 
-Frequency response of signal reconstruction methods using fft
+The magnitude of the frequency responses of the signal reconstruction methods is obtained using fft.  Note the cutoff frequency of the filter is pi/5 because a value of L = 5 was used in the impulse response plots.  In the passband, the ZOH best approximates the ideal LPF but the ZOH results in large sidelobes in the stopband.  The low amplitude of the sidelobes in the Linear Interpolator frequency response show that it is a better choice in minimizing spectral leakage and tracking the stopband of the ideal LPF.     
+
 <p align="center">
 <img width="576" alt="freqrespzoh" src="https://user-images.githubusercontent.com/17348315/40560675-b98d008c-6028-11e8-9ec9-67f5a8769320.png">
